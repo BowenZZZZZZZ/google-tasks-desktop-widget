@@ -45,6 +45,8 @@ docs/google-oauth-setup.md
 
 Paste the client ID and client secret into the app Settings. Do not commit real client secrets.
 
+Public builds intentionally ship with empty OAuth fields. Your local values are stored in macOS preferences after you click **Save**.
+
 The app requests only:
 
 ```text
