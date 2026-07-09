@@ -11,8 +11,10 @@ RESOURCES_DIR="$CONTENTS_DIR/Resources"
 ICON_NAME="AppIcon"
 
 cd "$ROOT_DIR"
-python3 "$ROOT_DIR/scripts/make_app_icon.py" >/dev/null
-iconutil -c icns "$ROOT_DIR/Assets/AppIcon.iconset" -o "$ROOT_DIR/Assets/$ICON_NAME.icns"
+if [[ ! -f "$ROOT_DIR/Assets/$ICON_NAME.icns" ]]; then
+  python3 "$ROOT_DIR/scripts/make_app_icon.py" >/dev/null
+  iconutil -c icns "$ROOT_DIR/Assets/AppIcon.iconset" -o "$ROOT_DIR/Assets/$ICON_NAME.icns"
+fi
 swift build -c release
 
 rm -rf "$APP_DIR"
